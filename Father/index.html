@@ -7,14 +7,18 @@
 		<title>父亲节</title>
 		<style style="text/css">
 			*{margin:0;padding:0;}
-			body{background:url("images/8.jpg");background-size:cover;}
+			.nr{
+				background:url("images/8.jpg");background-size:cover;width: 544px;height: 792px;
+				display: inline-block;
+			}
+			body{text-align: center;}
 			/*start top*/
 			.top{width:400px;height:100px;margin:60px auto;font-size:30px;font-family:"华文行楷";color:black;
 			background:-webkit-linear-gradient(45deg,#ff0000,#ffcc00,#ffff99,#33ccff,#00ff33,#6600ff,#333399);
-			-webkit-background-clip:text;}
+			-webkit-background-clip:text;display: inline-block;}
 			/*end top*/
 			/*start box*/
-			.box{width:310px;height:310px;margin:auto;perspective:800px;/*景深*/}
+			.box{width:310px;height:310px;margin: auto;perspective:800px;/*景深*/}
 			.box .pic{position:relative;left: 70px;transform-style:preserve-3d;/*3d环境*/ animation:play 10s linear infinite;transform-origin: 76px 195px 2px;/*动画名称 执行时间 匀速 无限执行*/}
 			.box ul li{list-style:none;position:absolute;top:0;left:0;}
 			/*start box*/
@@ -29,60 +33,62 @@
 		</style>
 	</head>
 	<body>
-		<!--start top-->
-		<div class="top">
-			<marquee behavior="alternate">父亲节快乐 &nbsp;老爸辛苦了</marquee>
-		</div>
-		<!--end top-->
-		<!--start box-->
-		<div class="box">
-			<div class="pic">
-				<ul>
-					<li><img src="images/1.jpg" width="" height="" alt=""/></li>
-					<li><img src="images/2.jpg" width="" height="" alt=""/></li>
-					<li><img src="images/3.jpg" width="" height="" alt=""/></li>
-					<li><img src="images/4.jpg" width="" height="" alt=""/></li>
-					<li><img src="images/5.jpg" width="" height="" alt=""/></li>
-					<li><img src="images/6.jpg" width="" height="" alt=""/></li>
-				</ul>
+		<div class="nr">
+			<!--start top-->
+			<div class="top">
+				<marquee behavior="alternate">父亲节快乐 &nbsp;老爸辛苦了</marquee>
 			</div>
-		</div>
-		<!--end box-->
-		<!--start text-->
-		<div id="text"></div>
-		<!--end text-->
-		<embed src="music.mp3" hidden="true" loop="true"/>
-		
-		<script src="js/jquery.min.js"></script>
-		<!--雪花-->
-		<script src="js/snow.js"></script>
-		<script>
-			$(".pic ul li").each(function(i){//遍历
-				var deg=360/$(".pic ul li").size();//size个数
-				//当前的li对象 添加css样式
-				$(this).css({"transform":"rotateY("+deg*i+"deg) translateZ(216px)"});
-				
-				$.fn.snow({
-					minSize:10,
-					maxSize:15,
-					newOn:500,
-					flakeColor:"#ffffff"
+			<!--end top-->
+			<!--start box-->
+			<div class="box">
+				<div class="pic">
+					<ul>
+						<li><img src="images/1.jpg" width="" height="" alt=""/></li>
+						<li><img src="images/2.jpg" width="" height="" alt=""/></li>
+						<li><img src="images/3.jpg" width="" height="" alt=""/></li>
+						<li><img src="images/4.jpg" width="" height="" alt=""/></li>
+						<li><img src="images/5.jpg" width="" height="" alt=""/></li>
+						<li><img src="images/6.jpg" width="" height="" alt=""/></li>
+					</ul>
+				</div>
+			</div>
+			<!--end box-->
+			<!--start text-->
+			<div id="text"></div>
+			<!--end text-->
+			<embed src="music.mp3" hidden="true" loop="true"/>
+
+			<script src="js/jquery.min.js"></script>
+			<!--雪花-->
+			<script src="js/snow.js"></script>
+			<script>
+				$(".pic ul li").each(function(i){//遍历
+					var deg=360/$(".pic ul li").size();//size个数
+					//当前的li对象 添加css样式
+					$(this).css({"transform":"rotateY("+deg*i+"deg) translateZ(216px)"});
+
+					$.fn.snow({
+						minSize:10,
+						maxSize:15,
+						newOn:500,
+						flakeColor:"#ffffff"
+					});
 				});
-			});
-			
-			var i=0;
-			var str="父亲节话父亲，我的老爸是最佳：对老妈，几十年恩爱有加；对事业，兢兢业业能抗压；对子女，和蔼可亲笑哈哈；对生活，积极乐观心态佳。老爸节日快乐！";
-			
-			window.onload=function typing(){
-				//获取div
-				var mydiv=document.getElementById("text");
-				mydiv.innerHTML+=str.charAt(i);
-				i++;
-				var id=setTimeout(typing,100);
-				if(i==str.length){
-					clearTimeout(id);
+
+				var i=0;
+				var str="父亲节话父亲，我的老爸是最佳：对老妈，几十年恩爱有加；对事业，兢兢业业能抗压；对子女，和蔼可亲笑哈哈；对生活，积极乐观心态佳。老爸节日快乐！";
+
+				window.onload=function typing(){
+					//获取div
+					var mydiv=document.getElementById("text");
+					mydiv.innerHTML+=str.charAt(i);
+					i++;
+					var id=setTimeout(typing,100);
+					if(i==str.length){
+						clearTimeout(id);
+					}
 				}
-			}
-		</script>
+			</script>
+		</div>
 	</body>
 </html>
